@@ -1,5 +1,6 @@
 package observer.weatherstation.display
 
+import observer.weatherstation.WeatherStation
 import observer.weatherstation.observer.Observer
 import observer.weatherstation.observer.Subject
 
@@ -13,10 +14,12 @@ class CurrentConditionDisplay(subject: Subject) : Observer, DisplayElement {
         weatherData.registerObserver(this)
     }
 
-    override fun update(temperature: Float, humidity: Float, pressure: Float) {
-        this.temperature = temperature
-        this.humidity = humidity
-        display()
+    override fun update(subject: Subject) {
+        if (subject is WeatherStation) {
+            this.temperature = subject.temperature
+            this.humidity = subject.humidity
+            display()
+        }
     }
 
     override fun display() {

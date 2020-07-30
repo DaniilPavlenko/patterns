@@ -3,12 +3,12 @@ package observer.weatherstation
 import observer.weatherstation.observer.Observer
 import observer.weatherstation.observer.Subject
 
-class WeatherData : Subject {
+class WeatherData : WeatherStation, Subject {
 
     private val observers = arrayListOf<Observer>()
-    private var temperature = 0.0F
-    private var humidity = 0.0F
-    private var pressure = 0.0F
+    override var temperature = 0.0F
+    override var humidity = 0.0F
+    override var pressure = 0.0F
 
     override fun registerObserver(observer: Observer) {
         observers.add(observer)
@@ -20,7 +20,7 @@ class WeatherData : Subject {
 
     override fun notifyObservers() {
         for (observer in observers) {
-            observer.update(temperature, humidity, pressure)
+            observer.update(this)
         }
     }
 

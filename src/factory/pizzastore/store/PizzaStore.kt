@@ -6,6 +6,7 @@ abstract class PizzaStore {
 
     companion object {
         const val TYPE_CHEESE = "cheese"
+        const val TYPE_CLAMS = "clams"
     }
 
     fun orderPizza(pizzaType: String): Pizza {

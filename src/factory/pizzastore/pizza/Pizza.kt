@@ -1,19 +1,18 @@
 package factory.pizzastore.pizza
 
+import factory.pizzastore.ingredient.type.*
+
 abstract class Pizza {
 
     var name: String = ""
-    protected var dough: String = ""
-    protected var sauce: String = ""
-    protected val toppings = arrayListOf<String>()
+    protected var dough: Dough? = null
+    protected var sauce: Sauce? = null
+    protected var veggies: Array<Veggies> = emptyArray()
+    protected var cheese: Cheese? = null
+    protected var pepperoni: Pepperoni? = null
+    protected var clams: Clams? = null
 
-    open fun prepare() {
-        println("Preparing $name")
-        println("Tossing dough...")
-        println("Adding sauce...")
-        println("Adding toppings: ")
-        toppings.forEach { println("\t$it") }
-    }
+    abstract fun prepare()
 
     open fun bake() = println("Bake for 25 minutes at 350")
 

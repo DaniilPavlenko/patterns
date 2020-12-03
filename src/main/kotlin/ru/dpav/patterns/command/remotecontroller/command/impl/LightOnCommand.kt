@@ -2,9 +2,11 @@ package ru.dpav.patterns.command.remotecontroller.command.impl
 
 import ru.dpav.patterns.command.remotecontroller.command.Command
 
-class LightOnCommand : Command {
+class LightOnCommand(
+    private val light: Light
+) : Command {
 
     override fun execute() {
-        TODO("Not yet implemented")
+        light.on()
     }
 }

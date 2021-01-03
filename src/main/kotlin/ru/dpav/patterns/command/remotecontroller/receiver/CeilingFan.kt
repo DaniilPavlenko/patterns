@@ -2,13 +2,13 @@ package ru.dpav.patterns.command.remotecontroller.receiver
 
 import ru.dpav.patterns.command.remotecontroller.util.Utils.Companion.printCommand
 
-class Light(
+class CeilingFan(
     val room: String
 ) {
 
     companion object {
-        const val COMMAND_ON = "light is on"
-        const val COMMAND_OFF = "light is off"
+        const val COMMAND_ON = "ceiling fan is on"
+        const val COMMAND_OFF = "ceiling fan is off"
     }
 
     fun on() = printCommand(room, COMMAND_ON)

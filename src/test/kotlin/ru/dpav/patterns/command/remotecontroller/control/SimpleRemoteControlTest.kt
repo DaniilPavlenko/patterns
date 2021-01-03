@@ -3,8 +3,8 @@ package ru.dpav.patterns.command.remotecontroller.control
 import TestPrinterStream
 import org.junit.Before
 import org.junit.Test
-import ru.dpav.patterns.command.remotecontroller.command.GarageDoorOpenCommand
 import ru.dpav.patterns.command.remotecontroller.command.LightOnCommand
+import ru.dpav.patterns.command.remotecontroller.command.door.garage.GarageDoorUpCommand
 import ru.dpav.patterns.command.remotecontroller.receiver.GarageDoor
 import ru.dpav.patterns.command.remotecontroller.receiver.Light
 import kotlin.test.assertEquals
@@ -22,7 +22,7 @@ internal class SimpleRemoteControlTest {
 
     @Test
     fun `turn on light == Light turned on`() {
-        val light = Light()
+        val light = Light("")
         val lightOnCommand = LightOnCommand(light)
         remote.setCommand(lightOnCommand)
         printer.start()
@@ -32,8 +32,8 @@ internal class SimpleRemoteControlTest {
 
     @Test
     fun `open garage door = Garage Door is open`() {
-        val garageDoor = GarageDoor()
-        remote.setCommand(GarageDoorOpenCommand(garageDoor))
+        val garageDoor = GarageDoor("")
+        remote.setCommand(GarageDoorUpCommand(garageDoor))
         printer.start()
         remote.buttonWasPressed()
         assertEquals(GarageDoor.COMMAND_UP, printer.printResults(), "The door didn't open!")
@@ -41,11 +41,11 @@ internal class SimpleRemoteControlTest {
 
     @Test
     fun `turn on light & open garage door`() {
-        val light = Light()
-        val garageDoor = GarageDoor()
+        val light = Light("")
+        val garageDoor = GarageDoor("")
 
         val lightOnCommand = LightOnCommand(light)
-        val doorOpenCommand = GarageDoorOpenCommand(garageDoor)
+        val doorOpenCommand = GarageDoorUpCommand(garageDoor)
 
         printer.start()
         remote.setCommand(lightOnCommand)

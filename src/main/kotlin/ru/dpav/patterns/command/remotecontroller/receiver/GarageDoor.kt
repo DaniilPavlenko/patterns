@@ -1,14 +1,19 @@
 package ru.dpav.patterns.command.remotecontroller.receiver
 
-class GarageDoor {
+import ru.dpav.patterns.command.remotecontroller.util.Utils.Companion.printCommand
+
+class GarageDoor(
+    val room: String
+) {
 
     companion object {
-        const val COMMAND_UP = "Garage Door is Open."
+        const val COMMAND_UP = "door  is up"
+        const val COMMAND_DOWN = "door is down"
     }
 
-    fun up() = println(COMMAND_UP)
+    fun up() = printCommand(room, COMMAND_UP)
 
-    fun down() {}
+    fun down() = printCommand(room, COMMAND_DOWN)
 
     fun stop() {}
 

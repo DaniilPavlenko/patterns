@@ -1,6 +1,6 @@
-package ru.dpav.patterns.command.remotecontroller.controll
+package ru.dpav.patterns.command.remotecontroller.control
 
-import ru.dpav.patterns.command.remotecontroller.command.Command
+import ru.dpav.patterns.command.remotecontroller.command.`interface`.Command
 
 class SimpleRemoteControl {
 

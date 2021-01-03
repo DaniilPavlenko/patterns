@@ -1,4 +1,4 @@
-package ru.dpav.patterns.command.remotecontroller.commandsubject
+package ru.dpav.patterns.command.remotecontroller.receiver
 
 class GarageDoor {
 

@@ -1,12 +1,12 @@
-package ru.dpav.patterns.command.remotecontroller.controll
+package ru.dpav.patterns.command.remotecontroller.control
 
 import TestPrinterStream
 import org.junit.Before
 import org.junit.Test
-import ru.dpav.patterns.command.remotecontroller.command.impl.Light
-import ru.dpav.patterns.command.remotecontroller.command.impl.LightOnCommand
-import ru.dpav.patterns.command.remotecontroller.command.impl.doors.garage.GarageDoorOpenCommand
-import ru.dpav.patterns.command.remotecontroller.commandsubject.GarageDoor
+import ru.dpav.patterns.command.remotecontroller.command.GarageDoorOpenCommand
+import ru.dpav.patterns.command.remotecontroller.command.LightOnCommand
+import ru.dpav.patterns.command.remotecontroller.receiver.GarageDoor
+import ru.dpav.patterns.command.remotecontroller.receiver.Light
 import kotlin.test.assertEquals
 
 internal class SimpleRemoteControlTest {

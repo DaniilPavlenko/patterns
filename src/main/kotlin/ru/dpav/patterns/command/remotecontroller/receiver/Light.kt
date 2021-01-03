@@ -1,4 +1,4 @@
-package ru.dpav.patterns.command.remotecontroller.command.impl
+package ru.dpav.patterns.command.remotecontroller.receiver
 
 class Light {
 

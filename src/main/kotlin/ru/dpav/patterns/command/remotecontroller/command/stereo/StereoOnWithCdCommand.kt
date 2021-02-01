@@ -12,4 +12,6 @@ class StereoOnWithCdCommand(
         stereo.setCd()
         stereo.setVolume(11)
     }
+
+    override fun undo() = stereo.off()
 }

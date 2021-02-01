@@ -8,4 +8,6 @@ class StereoOffCommand(
 ) : Command {
 
     override fun execute() = stereo.off()
+
+    override fun undo() = stereo.on()
 }

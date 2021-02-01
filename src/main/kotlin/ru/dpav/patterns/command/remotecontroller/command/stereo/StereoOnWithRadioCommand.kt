@@ -12,4 +12,6 @@ class StereoOnWithRadioCommand(
         stereo.setRadio()
         stereo.setVolume(11)
     }
+
+    override fun undo() = stereo.off()
 }

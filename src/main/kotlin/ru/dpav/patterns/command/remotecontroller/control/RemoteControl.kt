@@ -7,18 +7,23 @@ class RemoteControl {
 
     private val onCommands = Array<Command>(7) { NoCommand() }
     private val offCommands = Array<Command>(7) { NoCommand() }
+    private var undoCommand: Command = NoCommand()
 
     fun setCommand(slotId: Int, onCommand: Command, offCommand: Command) {
         onCommands[slotId] = onCommand
         offCommands[slotId] = offCommand
     }
 
-    fun onButtonWasPressed(slotId: Int) {
-        onCommands[slotId].execute()
-    }
+    fun onButtonWasPressed(slotId: Int) =
+        executeAndSaveAsPrevious(onCommands[slotId])
 
-    fun offButtonWasPressed(slotId: Int) {
-        offCommands[slotId].execute()
+    fun offButtonWasPressed(slotId: Int) =
+        executeAndSaveAsPrevious(offCommands[slotId])
+
+    fun undoButtonWasPressed() {
+        undoCommand.undo()
+        // My addition
+        undoCommand = NoCommand()
     }
 
     override fun toString(): String {
@@ -30,5 +35,10 @@ class RemoteControl {
             )
         }
         return stringBuff.toString()
+    }
+
+    private fun executeAndSaveAsPrevious(command: Command) {
+        command.execute()
+        undoCommand = command
     }
 }

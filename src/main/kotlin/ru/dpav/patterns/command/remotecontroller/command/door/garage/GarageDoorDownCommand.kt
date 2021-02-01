@@ -8,4 +8,6 @@ class GarageDoorDownCommand(
 ) : Command {
 
     override fun execute() = door.down()
+
+    override fun undo() = door.up()
 }

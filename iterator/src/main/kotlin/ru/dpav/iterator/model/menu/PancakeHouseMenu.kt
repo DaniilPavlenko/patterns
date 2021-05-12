@@ -1,5 +1,7 @@
 package ru.dpav.iterator.model.menu
 
+import ru.dpav.iterator.Iterator
+import ru.dpav.iterator.impl.PancakeHouseMenuIterator
 import ru.dpav.iterator.model.MenuItem
 
 class PancakeHouseMenu {
@@ -30,6 +32,10 @@ class PancakeHouseMenu {
             true,
             3.59
         )
+    }
+
+    fun createIterator(): Iterator<MenuItem> {
+        return PancakeHouseMenuIterator(menuItems)
     }
 
     private fun addItem(name: String, description: String, isVegetarian: Boolean, price: Double) {

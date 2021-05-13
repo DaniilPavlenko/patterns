@@ -1,10 +1,9 @@
 package ru.dpav.iterator.model.menu
 
-import ru.dpav.iterator.Iterator
 import ru.dpav.iterator.impl.DinerMenuIterator
 import ru.dpav.iterator.model.MenuItem
 
-class DinerMenu {
+class DinerMenu : Menu {
 
     private var menuItems = arrayOfNulls<MenuItem>(MAX_ITEMS)
     private var numberOfItems = 0
@@ -16,7 +15,7 @@ class DinerMenu {
         addItem("Hotdog", "A hod dog, with sauerkraut, relish, onions, topped with cheese", false, 3.05)
     }
 
-    fun createIterator(): Iterator<MenuItem> {
+    override fun createIterator(): MutableIterator<MenuItem> {
         return DinerMenuIterator(menuItems)
     }
 

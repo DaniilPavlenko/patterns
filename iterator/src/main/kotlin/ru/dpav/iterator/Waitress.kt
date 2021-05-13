@@ -1,12 +1,11 @@
 package ru.dpav.iterator
 
 import ru.dpav.iterator.model.MenuItem
-import ru.dpav.iterator.model.menu.DinerMenu
-import ru.dpav.iterator.model.menu.PancakeHouseMenu
+import ru.dpav.iterator.model.menu.Menu
 
 class Waitress(
-    private val pancakeHouseMenu: PancakeHouseMenu,
-    private val dinerMenu: DinerMenu
+    private val pancakeHouseMenu: Menu,
+    private val dinerMenu: Menu
 ) {
     fun printMenu() {
         val pancakeIterator = pancakeHouseMenu.createIterator()

@@ -1,10 +1,8 @@
 package ru.dpav.iterator.model.menu
 
-import ru.dpav.iterator.Iterator
-import ru.dpav.iterator.impl.PancakeHouseMenuIterator
 import ru.dpav.iterator.model.MenuItem
 
-class PancakeHouseMenu {
+class PancakeHouseMenu : Menu {
     private val menuItems = arrayListOf<MenuItem>()
 
     init {
@@ -34,8 +32,8 @@ class PancakeHouseMenu {
         )
     }
 
-    fun createIterator(): Iterator<MenuItem> {
-        return PancakeHouseMenuIterator(menuItems)
+    override fun createIterator(): MutableIterator<MenuItem> {
+        return menuItems.iterator()
     }
 
     private fun addItem(name: String, description: String, isVegetarian: Boolean, price: Double) {

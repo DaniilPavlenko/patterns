@@ -31,5 +31,9 @@ class Menu(
 
     override fun print() {
         println("\n${getName()}, ${getDescription()}\n----------")
+        val iterator = menuComponents.iterator()
+        while (iterator.hasNext()) {
+            iterator.next().print()
+        }
     }
 }

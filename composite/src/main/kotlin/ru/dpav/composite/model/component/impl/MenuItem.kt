@@ -1,5 +1,6 @@
 package ru.dpav.composite.model.component.impl
 
+import ru.dpav.composite.iterator.NullIterator
 import ru.dpav.composite.model.component.MenuComponent
 
 class MenuItem(
@@ -20,5 +21,9 @@ class MenuItem(
     override fun print() {
         val vegetarianStr = if (isVegetarian()) "(v)" else ""
         println(" ${getName()} ${vegetarianStr}, $price -- ${getDescription()}")
+    }
+
+    override fun createIterator(): Iterator<MenuComponent> {
+        return NullIterator()
     }
 }

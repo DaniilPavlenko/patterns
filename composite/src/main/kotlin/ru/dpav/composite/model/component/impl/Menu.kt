@@ -1,11 +1,14 @@
 package ru.dpav.composite.model.component.impl
 
+import ru.dpav.composite.iterator.CompositeIterator
 import ru.dpav.composite.model.component.MenuComponent
 
 class Menu(
     private val name: String,
     private val description: String
 ) : MenuComponent() {
+
+    var iterator: Iterator<MenuComponent>? = null
 
     private val menuComponents: MutableList<MenuComponent> = arrayListOf()
 
@@ -35,5 +38,12 @@ class Menu(
         while (iterator.hasNext()) {
             iterator.next().print()
         }
+    }
+
+    override fun createIterator(): Iterator<MenuComponent> {
+        if (iterator == null) {
+            iterator = CompositeIterator(menuComponents.iterator())
+        }
+        return iterator!!
     }
 }

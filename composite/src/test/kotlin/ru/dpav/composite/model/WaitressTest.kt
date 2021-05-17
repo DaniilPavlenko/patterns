@@ -9,6 +9,21 @@ internal class WaitressTest {
 
     @Test
     fun printMenu() {
+        val allMenus: MenuComponent = createMenus()
+
+        val waitress = Waitress(allMenus)
+        waitress.printMenu()
+    }
+
+    @Test
+    fun printVegetarianMenu() {
+        val allMenus: MenuComponent = createMenus()
+
+        val waitress = Waitress(allMenus)
+        waitress.printVegetarianMenu()
+    }
+
+    private fun createMenus(): MenuComponent {
         val menu1 = Menu("Menu 1", "Description of the menu 1").apply {
             addItem("1-1", "1", true, 2.99)
             addItem("1-2", "2", false, 3.99)
@@ -35,9 +50,7 @@ internal class WaitressTest {
         }
 
         menu3.add(desertMenu)
-
-        val waitress = Waitress(allMenus)
-        waitress.printMenu()
+        return allMenus
     }
 
     private fun Menu.addItem(name: String, desc: String, isVegetarian: Boolean, price: Double) {

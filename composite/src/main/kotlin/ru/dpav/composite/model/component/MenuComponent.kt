@@ -32,4 +32,8 @@ abstract class MenuComponent {
     open fun print() {
         throw UnsupportedOperationException()
     }
+
+    open fun createIterator(): Iterator<MenuComponent> {
+        throw UnsupportedOperationException()
+    }
 }

@@ -42,9 +42,9 @@ internal class GumballMachineTest {
         }
     }
 
-    private fun printWithVerticalMargin(any: Any) {
+    private fun printWithVerticalMargin(machine: GumballMachine) {
         println()
-        println(any)
+        println(machine.state)
         println()
     }
 }

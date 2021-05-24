@@ -8,6 +8,7 @@ class GumballMachine(count: Int) {
     val noQuarterState = NoQuarterState(this)
     val hasQuarterState = HasQuarterState(this)
     val soldState = SoldState(this)
+    val winnerState = WinnerState(this)
 
     var state: State = soldOutState
     var count: Int = count
